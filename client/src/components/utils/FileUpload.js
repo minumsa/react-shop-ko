@@ -1,30 +1,30 @@
-import React, { useState } from "react";
-import Dropzone from "react-dropzone";
-import { Icon } from "antd";
-import axios from "axios";
+import React, { useState } from 'react';
+import Dropzone from 'react-dropzone';
+import { Icon } from 'antd';
+import axios from 'axios';
 
 function FileUpload(props) {
   const [Images, setImages] = useState([]);
 
-  const dropHandler = files => {
+  const dropHandler = (files) => {
     let formData = new FormData();
 
     const config = {
-      header: { "content-type": "multipart/form-data" },
+      header: { 'content-type': 'multipart/form-data' },
     };
-    formData.append("file", files[0]);
+    formData.append('file', files[0]);
 
-    axios.post("/api/product/image", formData, config).then(response => {
+    axios.post('/api/product/image', formData, config).then((response) => {
       if (response.data.success) {
         setImages([...Images, response.data.filePath]);
         props.refreshFunction([...Images, response.data.filePath]);
       } else {
-        alert("파일을 저장하는 데 실패했습니다.");
+        alert('파일을 저장하는 데 실패했습니다.');
       }
     });
   };
 
-  const deleteHandler = image => {
+  const deleteHandler = (image) => {
     const currentIndex = Images.indexOf(image);
 
     let newImages = [...Images];
@@ -35,7 +35,7 @@ function FileUpload(props) {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       <Dropzone onDrop={dropHandler}>
         {({ getRootProps, getInputProps }) => (
           <section>
@@ -43,15 +43,15 @@ function FileUpload(props) {
               style={{
                 width: 300,
                 height: 240,
-                border: "1px solid lightgray",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                border: '1px solid lightgray',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
               {...getRootProps()}
             >
               <input {...getInputProps()} />
-              <Icon type="plus" style={{ fontSize: "3rem" }} />
+              <Icon type="plus" style={{ fontSize: '3rem' }} />
             </div>
           </section>
         )}
@@ -59,16 +59,16 @@ function FileUpload(props) {
 
       <div
         style={{
-          display: "flex",
-          width: "350px",
-          height: "240px",
-          overflow: "scroll",
+          display: 'flex',
+          width: '350px',
+          height: '240px',
+          overflow: 'scroll',
         }}
       >
         {Images.map((image, index) => (
           <div onClick={() => deleteHandler(image)} key={index}>
             <img
-              style={{ minWidth: "300px", width: "300px", height: "240px" }}
+              style={{ minWidth: '300px', width: '300px', height: '240px' }}
               src={`http://localhost:5000/${image}`}
             />
           </div>
