@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Form, Input } from 'antd';
 import FileUpload from '../../utils/FileUpload';
 import Axios from 'axios';
 // import { response } from 'express';
@@ -46,7 +46,13 @@ function UploadProductPage(props) {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    if (!Title || !Description || !Price || !Continent || !Images) {
+    if (
+      !Title ||
+      !Description ||
+      !Price ||
+      !Continent ||
+      !Images.length === 0
+    ) {
       return alert('모든 값을 넣어주셔야 합니다.');
     }
 
@@ -93,7 +99,7 @@ function UploadProductPage(props) {
         <TextArea onChange={descriptionChangeHandler} value={Description} />
         <br />
         <br />
-        <label>가격($)</label>
+        <label>가격</label>
         <Input type="number" onChange={priceChangeHandler} value={Price} />
         <br />
         <br />
@@ -106,7 +112,7 @@ function UploadProductPage(props) {
         </select>
         <br />
         <br />
-        <Button type="submit">확인</Button>
+        <button>확인</button>
       </Form>
     </div>
   );

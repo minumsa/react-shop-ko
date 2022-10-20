@@ -1,5 +1,7 @@
 const { Schema } = require('mongoose');
+// const Schema = mongoose.Schema;
 const mongoose = require('mongoose');
+
 const productSchema = mongoose.Schema(
   {
     writer: {
