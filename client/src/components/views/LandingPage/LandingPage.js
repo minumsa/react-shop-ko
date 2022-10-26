@@ -21,9 +21,18 @@ function LandingPage() {
     console.log('product', product);
 
     return (
-      <Card cover={<img src={`http://localhost:5000/${product.images[0]}`} />}>
-        <Meta title={product.title} description={`$${product.price}`} />
-      </Card>
+      <Col lg={6} md={8} xs={24} key={index}>
+        <Card
+          cover={
+            <img
+              style={{ width: '100%', maxHeight: '300px' }}
+              src={`http://localhost:5000/${product.images[0]}`}
+            />
+          }
+        >
+          <Meta title={product.title} description={`$${product.price}`} />
+        </Card>
+      </Col>
     );
   });
 
@@ -42,7 +51,7 @@ function LandingPage() {
 
       {/* Cards */}
 
-      {renderCards}
+      <Row gutter={[16, 16]}>{renderCards}</Row>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <button>더보기</button>
