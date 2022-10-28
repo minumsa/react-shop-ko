@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Icon, Col, Card, Row } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import ImageSlider from '../../utils/ImageSlider';
+import Checkbox from './Sections/Checkbox';
+import { continents } from './Sections/Datas';
 
 function LandingPage() {
   const [Products, setProducts] = useState([]);
@@ -66,13 +68,18 @@ function LandingPage() {
 
       {/* Filter */}
 
+      {/* CheckBox */}
+      <Checkbox list={continents} />
+
+      {/* RadioBox */}
+
       {/* Search */}
 
       {/* Cards */}
 
       <Row gutter={[16, 16]}>{renderCards}</Row>
 
-      <br></br>
+      <br />
 
       {PostSize >= Limit && (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
