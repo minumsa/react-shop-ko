@@ -29,4 +29,37 @@ const continents = [
   },
 ];
 
-export { continents };
+const price = [
+  {
+    _id: 0,
+    name: '전체보기',
+    array: [],
+  },
+  {
+    _id: 1,
+    name: '~ 50,000원',
+    array: [0, 50000],
+  },
+  {
+    _id: 2,
+    name: '50,000원 ~ 100,000원',
+    array: [50000, 100000],
+  },
+  {
+    _id: 3,
+    name: '100,000원 ~ 150,000원',
+    array: [100000, 150000],
+  },
+  {
+    _id: 4,
+    name: '150,000원 ~ 200,000원',
+    array: [150000, 200000],
+  },
+  {
+    _id: 5,
+    name: '200,000원 ~',
+    array: [200000, 999999],
+  },
+];
+
+export { continents, price };
