@@ -1,21 +1,18 @@
-import React, { useState } from "react";
-import { Input } from "antd";
-
-const { Search } = Input;
+import React, { useState } from 'react';
 
 function SearchFeature(props) {
-  const [SearchTerm, setSearchTerm] = useState("");
+  const [SearchTerm, setSearchTerm] = useState('');
 
-  const searchHandler = event => {
+  const searchHandler = (event) => {
     setSearchTerm(event.currentTarget.value);
     props.refreshFunction(event.currentTarget.value);
   };
 
   return (
     <div>
-      <Search
+      <input
         placeholder="검색어를 입력하세요"
-        onSearch={searchHandler}
+        onChange={searchHandler}
         style={{ width: 200 }}
         value={SearchTerm}
       />

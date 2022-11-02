@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { FaCode, FaSortAmountDown } from "react-icons/fa";
-import axios from "axios";
-import { Icon, Col, Card, Row } from "antd";
-import Meta from "antd/lib/card/Meta";
-import ImageSlider from "../../utils/ImageSlider";
-import Checkbox from "./Sections/Checkbox";
-import Radiobox from "./Sections/Radiobox";
-import { continents, price } from "./Sections/Datas";
-import SearchFeature from "./Sections/SearchFeature";
+import React, { useEffect, useState } from 'react';
+import { FaCode, FaSortAmountDown } from 'react-icons/fa';
+import axios from 'axios';
+import { Icon, Col, Card, Row } from 'antd';
+import Meta from 'antd/lib/card/Meta';
+import ImageSlider from '../../utils/ImageSlider';
+import Checkbox from './Sections/Checkbox';
+import Radiobox from './Sections/Radiobox';
+import { continents, price } from './Sections/Datas';
+import SearchFeature from './Sections/SearchFeature';
 
 function LandingPage() {
   const [Products, setProducts] = useState([]);
@@ -19,7 +19,7 @@ function LandingPage() {
     price: [],
   });
 
-  const [SearchTerm, setSearchTerm] = useState("");
+  const [SearchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     let body = {
@@ -29,8 +29,8 @@ function LandingPage() {
     getProducts(body);
   }, []);
 
-  const getProducts = body => {
-    axios.post("/api/product/products", body).then(response => {
+  const getProducts = (body) => {
+    axios.post('/api/product/products', body).then((response) => {
       if (response.data.success) {
         if (body.loadMore) {
           setProducts([...Products, ...response.data.productInfo]);
@@ -39,7 +39,7 @@ function LandingPage() {
         }
         setPostSize(response.data.postSize);
       } else {
-        alert("상품들을 가져오는 데 실패했습니다.");
+        alert('상품들을 가져오는 데 실패했습니다.');
       }
     });
   };
@@ -66,7 +66,7 @@ function LandingPage() {
     );
   });
 
-  const showFilteredResults = filters => {
+  const showFilteredResults = (filters) => {
     let body = {
       skip: 0,
       limit: Limit,
@@ -77,7 +77,7 @@ function LandingPage() {
     setSkip(0);
   };
 
-  const handlePrice = value => {
+  const handlePrice = (value) => {
     const data = price;
     let array = [];
     for (let key in data) {
@@ -93,9 +93,9 @@ function LandingPage() {
 
     newFilters[category] = filters;
 
-    console.log("filters", filters);
+    console.log('filters', filters);
 
-    if (category === "price") {
+    if (category === 'price') {
       let priceValues = handlePrice(filters);
       newFilters[category] = priceValues;
     }
@@ -103,7 +103,7 @@ function LandingPage() {
     setFilters(newFilters);
   };
 
-  const updateSearchTerm = newSearchTerm => {
+  const updateSearchTerm = (newSearchTerm) => {
     let body = {
       skip: 0,
       limit: Limit,
@@ -116,8 +116,8 @@ function LandingPage() {
   };
 
   return (
-    <div style={{ width: "75%", margin: "3rem auto" }}>
-      <div style={{ textAlign: "center" }}>
+    <div style={{ width: '75%', margin: '3rem auto' }}>
+      <div style={{ textAlign: 'center' }}>
         <h3>NEW ARRIVAL</h3>
         <h3>신상품</h3>
         <br></br>
@@ -130,14 +130,14 @@ function LandingPage() {
           {/* CheckBox */}
           <Checkbox
             list={continents}
-            handleFilters={filters => handleFilters(filters, "continents")}
+            handleFilters={(filters) => handleFilters(filters, 'continents')}
           />
         </Col>
         <Col lg={12} xs={24}>
           {/* RadioBox */}
           <Radiobox
             list={price}
-            handleFilters={filters => handleFilters(filters, "price")}
+            handleFilters={(filters) => handleFilters(filters, 'price')}
           />
         </Col>
       </Row>
@@ -145,9 +145,9 @@ function LandingPage() {
       {/* Search */}
       <div
         style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          margin: "1rem auto",
+          display: 'flex',
+          justifyContent: 'flex-end',
+          margin: '1rem auto',
         }}
       >
         <SearchFeature refreshFunction={updateSearchTerm} />
@@ -160,7 +160,7 @@ function LandingPage() {
       <br />
 
       {PostSize >= Limit && (
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <button onClick={loadMoreHandler}>더보기</button>
         </div>
       )}
