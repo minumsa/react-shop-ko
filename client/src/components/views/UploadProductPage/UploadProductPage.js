@@ -79,8 +79,8 @@ function UploadProductPage(props) {
   };
 
   return (
-    <div style={{ maxWidth: '700px', margin: '2rem auto' }}>
-      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+    <div style={{ maxWidth: '600px', margin: '3rem auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
         <h2>상품 업로드</h2>
       </div>
 
@@ -99,7 +99,7 @@ function UploadProductPage(props) {
         <TextArea onChange={descriptionChangeHandler} value={Description} />
         <br />
         <br />
-        <label>가격</label>
+        <label>가격(₩)</label>
         <Input type="number" onChange={priceChangeHandler} value={Price} />
         <br />
         <br />

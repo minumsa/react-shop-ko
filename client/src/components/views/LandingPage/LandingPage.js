@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FaCode, FaSortAmountDown } from 'react-icons/fa';
 import axios from 'axios';
-import { Icon, Col, Card, Row } from 'antd';
+import { Col, Card, Row } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import ImageSlider from '../../utils/ImageSlider';
 import Checkbox from './Sections/Checkbox';
@@ -156,7 +155,6 @@ function LandingPage() {
       {/* Cards */}
 
       <Row gutter={[16, 16]}>{renderCards}</Row>
-
       <br />
 
       {PostSize >= Limit && (
