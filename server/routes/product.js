@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const multer = require('multer');
-const { Product } = require('../models/Product');
+const multer = require("multer");
+const { Product } = require("../models/Product");
 
 //=================================
 //             Product
@@ -9,18 +9,18 @@ const { Product } = require('../models/Product');
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/');
+    cb(null, "uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, `${Date.now()}_${file.originalname}`);
   },
 });
 
-var upload = multer({ storage: storage }).single('file');
+var upload = multer({ storage: storage }).single("file");
 
-router.post('/image', (req, res) => {
+router.post("/image", (req, res) => {
   // 가져온 이미지를 저장해주면 된다.
-  upload(req, res, (err) => {
+  upload(req, res, err => {
     if (err) {
       return req.json({ success: false, err });
     } else {
@@ -33,18 +33,18 @@ router.post('/image', (req, res) => {
   });
 });
 
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
   // 받아온 정보들을 DB에 넣어준다.
 
   const product = new Product(req.body);
 
-  product.save((err) => {
+  product.save(err => {
     if (err) return res.status(400).json({ success: false, err });
     return res.status(200).json({ success: true });
   });
 });
 
-router.post('/products', (req, res) => {
+router.post("/products", (req, res) => {
   // product collection에 들어 있는 모든 상품 정보를 가져오기
 
   let limit = req.body.limit ? parseInt(req.body.limit) : 20;
@@ -55,9 +55,9 @@ router.post('/products', (req, res) => {
 
   for (let key in req.body.filters) {
     if (req.body.filters[key].length > 0) {
-      console.log('key', key);
+      console.log("key", key);
 
-      if (key === 'price') {
+      if (key === "price") {
         findArgs[key] = {
           // greater than equal : 이것보다 크거나 같고
           $gte: req.body.filters[key][0],
@@ -70,12 +70,12 @@ router.post('/products', (req, res) => {
     }
   }
 
-  console.log('findArgs', findArgs);
+  console.log("findArgs", findArgs);
 
   if (term) {
     Product.find(findArgs)
       .find({ $text: { $search: term } })
-      .populate('writer')
+      .populate("writer")
       .skip(skip)
       .limit(limit)
       .exec((err, productInfo) => {
@@ -88,7 +88,7 @@ router.post('/products', (req, res) => {
       });
   } else {
     Product.find(findArgs)
-      .populate('writer')
+      .populate("writer")
       .skip(skip)
       .limit(limit)
       .exec((err, productInfo) => {
@@ -102,17 +102,26 @@ router.post('/products', (req, res) => {
   }
 });
 
-router.get('/products_by_id', (req, res) => {
+router.get("/products_by_id", (req, res) => {
   let type = req.query.type;
-  let productId = req.query.id;
+  let productIds = req.query.id;
+
+  if (type === "array") {
+    // id=12345677,12345678,123456789 이거를
+    // productIds = ['12345677', '12345678', '123456789'] 이런 식으로 바꿔주기
+    let ids = req.query.id.split(",");
+    productIds = ids.map(item => {
+      return item;
+    });
+  }
 
   // productId를 이용해 DB에서 productId와 같은 상품 정보를 가져온다.
 
-  Product.find({ _id: productId })
-    .populate('writer')
+  Product.find({ _id: { $in: productIds } })
+    .populate("writer")
     .exec((err, product) => {
       if (err) return res.status(400).send(err);
-      return res.status(200).send({ success: true, product });
+      return res.status(200).json({ success: true, product });
     });
 });
 
