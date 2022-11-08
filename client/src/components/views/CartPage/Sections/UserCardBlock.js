@@ -1,8 +1,8 @@
-import React from 'react';
-import './UserCardBlock.css';
+import React from "react";
+import "./UserCardBlock.css";
 
 function UserCardBlock(props) {
-  const renderCartImages = (images) => {
+  const renderCartImages = images => {
     if (images.length > 0) {
       let image = images[0];
       return `http://localhost:5000/${image}`;
@@ -15,7 +15,7 @@ function UserCardBlock(props) {
       <tr key={index}>
         <td>
           <img
-            style={{ width: '70px' }}
+            style={{ width: "70px" }}
             alt="product"
             src={renderCartImages(product.images)}
           />
@@ -23,7 +23,7 @@ function UserCardBlock(props) {
         <td>{product.quantity} EA</td>
         <td>{product.price}</td>
         <td>
-          <button>Remove</button>
+          <button onClick={() => props.removeItem(product._id)}>Remove</button>
         </td>
       </tr>
     ));

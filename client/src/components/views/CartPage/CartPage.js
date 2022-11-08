@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getCartItems } from '../../../_actions/user_actions';
-import UserCardBlock from './Sections/UserCardBlock';
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getCartItems, removeCartItem } from "../../../_actions/user_actions";
+import UserCardBlock from "./Sections/UserCardBlock";
 
 function CartPage(props) {
   const dispatch = useDispatch();
@@ -13,11 +13,11 @@ function CartPage(props) {
     // 리덕스 User state 안의 cart 안에 상품이 들어있는지 확인
     if (props.user.userData && props.user.userData.cart) {
       if (props.user.userData.cart.length > 0) {
-        props.user.userData.cart.forEach((item) => {
+        props.user.userData.cart.forEach(item => {
           cartItems.push(item.id);
         });
         dispatch(getCartItems(cartItems, props.user.userData.cart)).then(
-          (response) => {
+          response => {
             calculateTotal(response.payload);
           }
         );
@@ -25,9 +25,9 @@ function CartPage(props) {
     }
   }, [props.user.userData]);
 
-  let calculateTotal = (cartDetail) => {
+  let calculateTotal = cartDetail => {
     let total = 0;
-    cartDetail.map((item) => {
+    cartDetail.map(item => {
       total += parseInt(item.price, 10) * item.quantity;
     });
 
@@ -36,13 +36,20 @@ function CartPage(props) {
     // .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
+  let removeFromCart = productId => {
+    dispatch(removeCartItem(productId)).then(response => {});
+  };
+
   return (
-    <div style={{ width: '85%', margin: '3rem auto' }}>
+    <div style={{ width: "85%", margin: "3rem auto" }}>
       <h2>My Cart</h2>
       <div>
-        <UserCardBlock products={props.user.cartDetail} />
+        <UserCardBlock
+          products={props.user.cartDetail}
+          removeItem={removeFromCart}
+        />
       </div>
-      <div style={{ marginTop: '3rem' }}>
+      <div style={{ marginTop: "3rem" }}>
         <h2>Total Amount: KRW {Total}</h2>
       </div>
     </div>
