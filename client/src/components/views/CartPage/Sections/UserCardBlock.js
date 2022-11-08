@@ -1,8 +1,8 @@
-import React from "react";
-import "./UserCardBlock.css";
+import React from 'react';
+import './UserCardBlock.css';
 
 function UserCardBlock(props) {
-  const renderCartImages = images => {
+  const renderCartImages = (images) => {
     if (images.length > 0) {
       let image = images[0];
       return `http://localhost:5000/${image}`;
@@ -11,11 +11,11 @@ function UserCardBlock(props) {
 
   const renderItems = () =>
     props.products &&
-    props.products.map(product => (
-      <tr>
+    props.products.map((product, index) => (
+      <tr key={index}>
         <td>
           <img
-            style={{ width: "70px" }}
+            style={{ width: '70px' }}
             alt="product"
             src={renderCartImages(product.images)}
           />
