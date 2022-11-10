@@ -67,7 +67,8 @@ function CartPage(props) {
         </>
       )}
 
-      <Paypal />
+      {/* ShowTotal이 있을 때만 Paypal버튼을 보여주기 */}
+      {ShowTotal && <Paypal total={Total} />}
     </div>
   );
 }
