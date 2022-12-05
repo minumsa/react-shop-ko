@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button, Descriptions } from 'antd';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../../../_actions/user_actions';
+import React from "react";
+import { Button, Descriptions } from "antd";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../../_actions/user_actions";
 
 function ProductInfo(props) {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function ProductInfo(props) {
         <Descriptions.Item label="PRICE">
           {props?.detail?.price
             ?.toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </Descriptions.Item>
         <Descriptions.Item label="SOLD">{props.detail.sold}</Descriptions.Item>
         <Descriptions.Item label="VIEW">{props.detail.views}</Descriptions.Item>
@@ -29,9 +29,9 @@ function ProductInfo(props) {
       <br />
       <br />
       <br />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <Button size="large" shape="round" onClick={clickHandler}>
-          ADD TO CART
+          장바구니
         </Button>
       </div>
     </div>

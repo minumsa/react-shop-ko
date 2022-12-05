@@ -20,10 +20,12 @@ function UserCardBlock(props) {
             src={renderCartImages(product.images)}
           />
         </td>
-        <td>{product.quantity} EA</td>
-        <td>{product.price}</td>
+        <td>{product.quantity}</td>
         <td>
-          <button onClick={() => props.removeItem(product._id)}>Remove</button>
+          {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
+        </td>
+        <td>
+          <button onClick={() => props.removeItem(product._id)}>삭제</button>
         </td>
       </tr>
     ));
@@ -33,10 +35,10 @@ function UserCardBlock(props) {
       <table>
         <thead>
           <tr>
-            <th>Product Image</th>
-            <th>Product Quantity</th>
-            <th>Product Price</th>
-            <th>Remove from Cart</th>
+            <th>상품명(옵션)</th>
+            <th>수량</th>
+            <th>주문금액</th>
+            <th>선택삭제</th>
           </tr>
         </thead>
 

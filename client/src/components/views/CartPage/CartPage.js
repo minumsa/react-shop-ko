@@ -39,7 +39,7 @@ function CartPage(props) {
       total += parseInt(item.price, 10) * item.quantity;
     });
 
-    setTotal(total);
+    setTotal(total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     setShowTotal(true);
   };
 
@@ -67,7 +67,7 @@ function CartPage(props) {
 
   return (
     <div style={{ width: "85%", margin: "3rem auto" }}>
-      <h2>My Cart</h2>
+      <h2>장바구니</h2>
       <div>
         <UserCardBlock
           products={props.user.cartDetail}
@@ -77,7 +77,12 @@ function CartPage(props) {
 
       {ShowTotal ? (
         <div style={{ marginTop: "3rem" }}>
-          <h2>Total Amount: KRW {Total}</h2>
+          <p>
+            <span style={{ fontSize: "15px" }}>전체합계: &nbsp;&nbsp;</span>
+            <span style={{ fontSize: "23px", fontWeight: "bold" }}>
+              {Total}원
+            </span>
+          </p>
         </div>
       ) : ShowSuccess ? (
         <Result status="success" title="Successfully Purchased Items!" />

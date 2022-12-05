@@ -1,20 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import { Menu, Icon, Badge } from 'antd';
-import axios from 'axios';
-import { USER_SERVER } from '../../../Config';
-import { withRouter } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { Menu, Icon, Badge } from "antd";
+import axios from "axios";
+import { USER_SERVER } from "../../../Config";
+import { withRouter } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function RightMenu(props) {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(state => state.user);
 
   const logoutHandler = () => {
-    axios.get(`${USER_SERVER}/logout`).then((response) => {
+    axios.get(`${USER_SERVER}/logout`).then(response => {
       if (response.status === 200) {
-        props.history.push('/login');
+        props.history.push("/login");
       } else {
-        alert('Log Out Failed');
+        alert("Log Out Failed");
       }
     });
   };
@@ -38,7 +38,7 @@ function RightMenu(props) {
             <a
               href="/user/cart"
               className="head-example"
-              style={{ marginRight: -22, color: '#667777' }}
+              style={{ marginRight: -22, color: "#667777" }}
             >
               <Icon
                 type="shopping-cart"
