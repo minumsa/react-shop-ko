@@ -30,7 +30,7 @@ function CheckBox(props) {
     props.list.map((value, index) => (
       <div key={index} style={{ display: 'inline-block' }}>
         <Checkbox
-          style={{ paddingLeft: '5px' }}
+          style={{ paddingLeft: '5px', paddingBottom: '7px' }}
           onChange={() => handleToggle(value._id)}
           checked={Checked.indexOf(value._id) === -1 ? false : true}
         />

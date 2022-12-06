@@ -7,13 +7,17 @@ import Axios from 'axios';
 const { TextArea } = Input;
 
 const Continents = [
-  { key: 1, value: '아프리카' },
-  { key: 2, value: '유럽' },
-  { key: 3, value: '아시아' },
-  { key: 4, value: '북미' },
-  { key: 5, value: '남미' },
-  { key: 6, value: '호주' },
-  { key: 7, value: '남극' },
+  { key: 1, value: 'ASICS' },
+  { key: 2, value: 'BLANKOF' },
+  { key: 3, value: 'BLUEPEACE FISHING CLUB' },
+  { key: 4, value: 'CESPA' },
+  { key: 5, value: 'DETAIL INC' },
+  { key: 6, value: 'DOCUMENT' },
+  { key: 7, value: 'FRESH SERVICE' },
+  { key: 8, value: 'GARMENT DYEING SERVICE' },
+  { key: 9, value: 'HATSKI' },
+  { key: 10, value: 'NEITHERS' },
+  { key: 11, value: 'NEW BALANCE' },
 ];
 
 function UploadProductPage(props) {
@@ -103,7 +107,11 @@ function UploadProductPage(props) {
         <Input type="number" onChange={priceChangeHandler} value={Price} />
         <br />
         <br />
-        <select onChange={continentChangeHandler} value={Continent}>
+        <select
+          onChange={continentChangeHandler}
+          value={Continent}
+          style={{ height: 30, width: 100 }}
+        >
           {Continents.map((item) => (
             <option key={item.key} value={item.key}>
               {item.value}

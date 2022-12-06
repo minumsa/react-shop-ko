@@ -1,31 +1,47 @@
 const continents = [
   {
     _id: 1,
-    name: '아프리카',
+    name: 'ASICS',
   },
   {
     _id: 2,
-    name: '유럽',
+    name: 'BLANKOF',
   },
   {
     _id: 3,
-    name: '아시아',
+    name: 'BLUEPEACE FISHING CLUB',
   },
   {
     _id: 4,
-    name: '북미',
+    name: 'CESPA',
   },
   {
     _id: 5,
-    name: '남미',
+    name: 'DETAIL INC',
   },
   {
     _id: 6,
-    name: '호주',
+    name: 'DOCUMENT',
   },
   {
     _id: 7,
-    name: '남극',
+    name: 'FRESH SERVICE',
+  },
+  {
+    _id: 8,
+    name: 'GARMENT DYEING SERVICE',
+  },
+  {
+    _id: 9,
+    name: 'HATSKI',
+  },
+  {
+    _id: 10,
+    name: 'NEITHERS',
+  },
+  {
+    _id: 11,
+    name: 'NEITHERS',
   },
 ];
 
