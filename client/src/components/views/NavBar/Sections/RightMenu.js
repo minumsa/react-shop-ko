@@ -23,10 +23,14 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="mail">
-          <a href="/login">로그인</a>
+          <a href="/login" style={{ color: "black" }}>
+            로그인
+          </a>
         </Menu.Item>
         <Menu.Item key="app">
-          <a href="/register">로그아웃</a>
+          <a href="/register" style={{ color: "black" }}>
+            로그아웃
+          </a>
         </Menu.Item>
       </Menu>
     );
@@ -48,13 +52,19 @@ function RightMenu(props) {
           </Badge>
         </Menu.Item>
         <Menu.Item key="upload">
-          <a href="/product/upload">업로드</a>
+          <a href="/product/upload" style={{ color: "black" }}>
+            업로드
+          </a>
         </Menu.Item>
         <Menu.Item key="history">
-          <a href="/history">히스토리</a>
+          <a href="/history" style={{ color: "black" }}>
+            히스토리
+          </a>
         </Menu.Item>
         <Menu.Item key="logout">
-          <a onClick={logoutHandler}>로그아웃</a>
+          <a onClick={logoutHandler} style={{ color: "black" }}>
+            로그아웃
+          </a>
         </Menu.Item>
       </Menu>
     );

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Menu } from 'antd';
+import React from "react";
+import { Menu } from "antd";
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -7,7 +7,9 @@ function LeftMenu(props) {
   return (
     <Menu mode={props.mode}>
       <Menu.Item key="mail">
-        <a href="/">홈</a>
+        <a href="/" style={{ color: "black" }}>
+          홈
+        </a>
       </Menu.Item>
       <SubMenu title={<span>카테고리</span>}>
         <MenuItemGroup title="Item 1">
