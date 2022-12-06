@@ -28,13 +28,14 @@ function CheckBox(props) {
   const renderCheckboxLists = () =>
     props.list &&
     props.list.map((value, index) => (
-      <React.Fragment key={index}>
+      <div key={index} style={{ display: 'inline-block' }}>
         <Checkbox
+          style={{ paddingLeft: '5px' }}
           onChange={() => handleToggle(value._id)}
           checked={Checked.indexOf(value._id) === -1 ? false : true}
         />
-        <span>{value.name}</span>
-      </React.Fragment>
+        <span style={{ paddingLeft: '5px' }}>{value.name}</span>
+      </div>
     ));
 
   return (

@@ -7,13 +7,13 @@ import Axios from 'axios';
 const { TextArea } = Input;
 
 const Continents = [
-  { key: 1, value: 'Africa' },
-  { key: 2, value: 'Europe' },
-  { key: 3, value: 'Asia' },
-  { key: 4, value: 'North America' },
-  { key: 5, value: 'South America' },
-  { key: 6, value: 'Austraila' },
-  { key: 7, value: 'Antarctica' },
+  { key: 1, value: '아프리카' },
+  { key: 2, value: '유럽' },
+  { key: 3, value: '아시아' },
+  { key: 4, value: '북미' },
+  { key: 5, value: '남미' },
+  { key: 6, value: '호주' },
+  { key: 7, value: '남극' },
 ];
 
 function UploadProductPage(props) {
