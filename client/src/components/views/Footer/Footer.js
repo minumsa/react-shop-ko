@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import "./Footer.css";
+import React from 'react';
+import styled from 'styled-components';
+import './Footer.css';
 
 function Footer() {
   return (
@@ -101,23 +101,24 @@ const FooterContainer = styled.div`
   position: relative;
   z-index: 100;
 
-  @media (max-width: 769px) {
+  @media (max-width: 1001px) {
+    border-top: none;
     padding: 20px 20px;
   }
 `;
 
-const FooterContent = styled.div``;
+const FooterContent = styled.div`
+  @media (max-width: 1001px) {
+    display: none;
+  }
+`;
 
 const FooterLinkContainer = styled.div`
   width: 800px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1001px) {
     width: 100%;
   }
-`;
-
-const FooterLinkTitle = styled.h1`
-  font-size: 16px;
 `;
 
 const FooterLinkContent = styled.div`
@@ -127,7 +128,7 @@ const FooterLinkContent = styled.div`
   margin-top: 25px;
   margin-bottom: 15px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1001px) {
     margin-top: 25px;
     margin-bottom: 10px;
   }
