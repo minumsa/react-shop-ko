@@ -9,7 +9,9 @@ function Footer() {
         <FooterLinkContainer>
           <FooterLinkContent>
             <div class="footer-logo">
-              <img src="https://slowsteadyclub.com/web/baton/images/logo/ssc_footer_logo.png"></img>
+              <a href="/">
+                <img src="https://slowsteadyclub.com/web/baton/images/logo/ssc_footer_logo.png"></img>
+              </a>
             </div>
             <div>
               <h4>CS CENTER</h4>
