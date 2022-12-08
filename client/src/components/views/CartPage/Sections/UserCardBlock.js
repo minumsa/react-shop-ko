@@ -18,7 +18,7 @@ function UserCardBlock(props) {
         </td>
         <td>
           <img
-            style={{ width: '48px' }}
+            style={{ height: '80px' }}
             alt="product"
             src={renderCartImages(product.images)}
           />

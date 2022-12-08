@@ -68,7 +68,7 @@ function CartPage(props) {
   };
 
   return (
-    <div style={{ width: '85%', margin: '3rem auto' }}>
+    <div style={{ width: '75%', margin: '3rem auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '45px' }}>
         <h2>장바구니</h2>
       </div>
@@ -82,7 +82,9 @@ function CartPage(props) {
       {ShowTotal ? (
         <div style={{ marginTop: '1rem', textAlign: 'right' }}>
           <p>
-            <span style={{ fontSize: '15px' }}>전체합계: &nbsp;&nbsp;</span>
+            <span style={{ fontSize: '15px', marginRight: '10px' }}>
+              전체합계:
+            </span>
             <span style={{ fontSize: '23px', fontWeight: 'bold' }}>
               {Total}원
             </span>
