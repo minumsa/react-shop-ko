@@ -1,21 +1,37 @@
 table {
-    font-family:arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  border-collapse: collapse;
+
+  width: 100%;
 }
 
 th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px
+  font-size: 13px;
+  text-align: center;
+  padding: 15px;
 }
 
 td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px
+  background-color: white;
+  padding: 8px;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
+tr {
+  border-top: black;
+}
+
+button {
+  font-size: 13px;
+  border: 1px solid #eee;
+  background-color: white;
+  vertical-align: middle;
+  word-spacing: -0.5px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
 }

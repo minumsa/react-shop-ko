@@ -69,7 +69,9 @@ function CartPage(props) {
 
   return (
     <div style={{ width: '85%', margin: '3rem auto' }}>
-      <h2>장바구니</h2>
+      <div style={{ textAlign: 'center', marginBottom: '45px' }}>
+        <h2>장바구니</h2>
+      </div>
       <div>
         <UserCardBlock
           products={props.user.cartDetail}
@@ -78,7 +80,7 @@ function CartPage(props) {
       </div>
 
       {ShowTotal ? (
-        <div style={{ marginTop: '3rem' }}>
+        <div style={{ marginTop: '1rem', textAlign: 'right' }}>
           <p>
             <span style={{ fontSize: '15px' }}>전체합계: &nbsp;&nbsp;</span>
             <span style={{ fontSize: '23px', fontWeight: 'bold' }}>
@@ -96,7 +98,9 @@ function CartPage(props) {
       )}
 
       {/* ShowTotal이 있을 때만 Paypal버튼을 보여주기 */}
-      {ShowTotal && <Paypal total={Total} onSuccess={transactionSuccess} />}
+      <div style={{ textAlign: 'right' }}>
+        {ShowTotal && <Paypal total={Total} onSuccess={transactionSuccess} />}
+      </div>
     </div>
   );
 }
