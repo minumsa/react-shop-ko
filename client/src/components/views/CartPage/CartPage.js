@@ -14,6 +14,7 @@ function CartPage(props) {
   const [Total, setTotal] = useState(0);
   const [ShowTotal, setShowTotal] = useState(false);
   const [ShowSuccess, setShowSuccess] = useState(false);
+  const [TotalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
     let cartItems = [];
@@ -42,6 +43,9 @@ function CartPage(props) {
     setTotal(total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     setShowTotal(true);
   };
+
+  // TODO: 총 개수 함수
+  let calculateTotalAmount;
 
   let removeFromCart = productId => {
     dispatch(removeCartItem(productId)).then(response => {
@@ -76,7 +80,6 @@ function CartPage(props) {
           removeItem={removeFromCart}
         />
       </div>
-
       {ShowTotal ? (
         <div style={{ marginTop: "1rem", textAlign: "right" }}>
           <p style={{ color: "black" }}>
@@ -96,7 +99,10 @@ function CartPage(props) {
           <Empty description={false} />
         </>
       )}
-
+      // TODO: 총 개수 보여지는 곳
+      <div>
+        <h2>총 개수: ${TotalAmount}</h2>
+      </div>
       {/* ShowTotal이 있을 때만 Paypal버튼을 보여주기 */}
       <div style={{ textAlign: "right" }}>
         {ShowTotal && <Paypal total={Total} onSuccess={transactionSuccess} />}
