@@ -17,14 +17,22 @@ function UserCardBlock(props) {
           <input type="checkbox"></input>
         </td>
         <td>
-          <img
-            style={{ height: "80px" }}
-            alt="product"
-            src={renderCartImages(product.images)}
-          />
-          <span style={{ marginLeft: "10px", marginBottom: "0px" }}>
-            {product.title}
-          </span>
+          <a href={`/product/${product._id}`}>
+            <img
+              style={{ height: "80px" }}
+              alt="product"
+              src={renderCartImages(product.images)}
+            />
+            <span
+              style={{
+                color: "black",
+                marginLeft: "10px",
+                marginBottom: "0px",
+              }}
+            >
+              {product.title}
+            </span>
+          </a>
         </td>
         <td style={{ textAlign: "center" }}>
           {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
