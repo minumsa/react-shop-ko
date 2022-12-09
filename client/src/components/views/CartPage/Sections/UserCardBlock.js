@@ -1,8 +1,8 @@
-import React from 'react';
-import './UserCardBlock.css';
+import React from "react";
+import "./UserCardBlock.css";
 
 function UserCardBlock(props) {
-  const renderCartImages = (images) => {
+  const renderCartImages = images => {
     if (images.length > 0) {
       let image = images[0];
       return `http://localhost:5000/${image}`;
@@ -13,21 +13,24 @@ function UserCardBlock(props) {
     props.products &&
     props.products.map((product, index) => (
       <tr key={index}>
-        <td style={{ textAlign: 'center' }}>
+        <td style={{ textAlign: "center" }}>
           <input type="checkbox"></input>
         </td>
         <td>
           <img
-            style={{ height: '80px' }}
+            style={{ height: "80px" }}
             alt="product"
             src={renderCartImages(product.images)}
           />
+          <span style={{ marginLeft: "10px", marginBottom: "0px" }}>
+            {product.title}
+          </span>
         </td>
-        <td style={{ textAlign: 'center' }}>
-          {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+        <td style={{ textAlign: "center" }}>
+          {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
         </td>
-        <td style={{ textAlign: 'center' }}>{product.quantity}</td>
-        <td style={{ textAlign: 'center' }}>
+        <td style={{ textAlign: "center" }}>{product.quantity}</td>
+        <td style={{ textAlign: "center" }}>
           <button onClick={() => props.removeItem(product._id)}>
             상품삭제
           </button>
@@ -40,13 +43,13 @@ function UserCardBlock(props) {
       <table>
         <thead>
           <tr>
-            <th style={{ width: '50px' }}>
+            <th style={{ width: "50px" }}>
               <input type="checkbox"></input>
             </th>
-            <th style={{ width: '450px' }}>상품명</th>
-            <th style={{ width: '150px' }}>주문금액</th>
-            <th style={{ width: '120px' }}>수량</th>
-            <th style={{ width: '100px' }}>주문</th>
+            <th style={{ width: "450px" }}>상품명</th>
+            <th style={{ width: "150px" }}>주문금액</th>
+            <th style={{ width: "120px" }}>수량</th>
+            <th style={{ width: "100px" }}>주문</th>
           </tr>
         </thead>
         <tbody>{renderItems()}</tbody>

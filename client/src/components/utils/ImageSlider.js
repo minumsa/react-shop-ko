@@ -1,17 +1,18 @@
-import React from 'react';
-import { Carousel } from 'antd';
+import React from "react";
+import { Carousel } from "antd";
 
 function ImageSlider(props) {
   return (
     <div>
-      <Carousel autoplay>
+      <Carousel>
+        {/* AUTOPLAY */}
         {props.images.map((image, index) => (
           <div key={index}>
             <img
               style={{
-                // 이 부분이 문제인 듯
-                maxWidth: 'auto',
-                maxHeight: '350px',
+                // FIXME: 창 크기에 따라 이미지 깨짐
+                maxWidth: "auto",
+                maxHeight: "350px",
               }}
               src={`http://localhost:5000/${image}`}
             />
