@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import ImageGallery from 'react-image-gallery';
+import React, { useState, useEffect } from "react";
+import ImageGallery from "react-image-gallery";
 
 function ProductImage(props) {
   const [Images, setImages] = useState([]);
@@ -8,7 +8,7 @@ function ProductImage(props) {
     if (props.detail.images && props.detail.images.length > 0) {
       let images = [];
 
-      props.detail.images.map((item) => {
+      props.detail.images.map(item => {
         images.push({
           original: `http://localhost:5000/${item}`,
           thumbnail: `http://localhost:5000/${item}`,

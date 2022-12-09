@@ -17,8 +17,8 @@ function CartPage(props) {
 
   useEffect(() => {
     let cartItems = [];
-    // 리덕스 User state 안의 cart 안에 상품이 들어있는지 확인
-    // &&(Logical AND): The logical AND (&&) (logical conjunction) operator for a set of boolean operands will be true if and only if all the operands are true. Otherwise it will be false.
+
+    // 리덕스 User state의 cart 안에 상품이 들어있는지 확인
     if (props.user.userData && props.user.userData.cart) {
       if (props.user.userData.cart.length > 0) {
         props.user.userData.cart.forEach(item => {
