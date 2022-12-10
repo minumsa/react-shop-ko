@@ -44,8 +44,34 @@ function CartPage(props) {
     setShowTotal(true);
   };
 
+  // TODO: 총 개수 React Hooks
+  useEffect(() => {
+    let cartItems = [];
+
+    if (props.user.userData && props.user.userData.cart) {
+      if (props.user.userData.cart.length > 0) {
+        props.user.userData.cart.forEach(item => {
+          cartItems.push(item.id);
+        });
+        dispatch(getCartItems(cartItems, props.user.userData.cart)).then(
+          response => {
+            console.log(response.payload);
+            calculateTotalAmount(response.payload);
+          }
+        );
+      }
+    }
+  }, [props.user.userData]);
+
   // TODO: 총 개수 함수
-  let calculateTotalAmount;
+  let calculateTotalAmount = cartDetail => {
+    let totalAmount = 0;
+    cartDetail.map(item => {
+      totalAmount += parseInt(item.quantity);
+    });
+
+    setTotalAmount(totalAmount);
+  };
 
   let removeFromCart = productId => {
     dispatch(removeCartItem(productId)).then(response => {
@@ -71,8 +97,17 @@ function CartPage(props) {
 
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
-      <div style={{ textAlign: "center", marginBottom: "45px" }}>
-        <h2>장바구니</h2>
+      <div
+        style={{
+          color: "black",
+          fontSize: "19px",
+          fontWeight: "bold",
+          textAlign: "center",
+          marginBottom: "45px",
+        }}
+      >
+        <span>장바구니</span>
+        <span style={{ marginLeft: "2px" }}>({TotalAmount})</span>
       </div>
       <div>
         <UserCardBlock
@@ -99,10 +134,6 @@ function CartPage(props) {
           <Empty description={false} />
         </>
       )}
-      // TODO: 총 개수 보여지는 곳
-      <div>
-        <h2>총 개수: ${TotalAmount}</h2>
-      </div>
       {/* ShowTotal이 있을 때만 Paypal버튼을 보여주기 */}
       <div style={{ textAlign: "right" }}>
         {ShowTotal && <Paypal total={Total} onSuccess={transactionSuccess} />}
