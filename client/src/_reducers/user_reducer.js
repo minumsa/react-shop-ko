@@ -7,9 +7,19 @@ import {
   GET_CART_ITEMS,
   REMOVE_CART_ITEM,
   ON_SUCCESS_BUY,
+  SELECT_CART_ITEM,
+  UNSELECT_CART_ITEM,
+  UNSELECT_CART_ALL,
+  SELECT_CART_ALL,
 } from "../_actions/types";
 
 export default function (state = {}, action) {
+  let indexes;
+  if (state.userData && state.userData.selectCartIndexes) {
+    indexes = state.userData.selectCartIndexes;
+  } else {
+    indexes = [];
+  }
   switch (action.type) {
     case REGISTER_USER:
       return { ...state, register: action.payload };
@@ -36,6 +46,42 @@ export default function (state = {}, action) {
         userData: {
           ...state.userData,
           cart: action.payload.cart,
+        },
+      };
+    case SELECT_CART_ITEM:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          selectCartIndexes: [...indexes, action.payload],
+        },
+      };
+    case UNSELECT_CART_ITEM:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          selectCartIndexes: indexes.filter(i => {
+            return i !== action.payload;
+          }),
+        },
+      };
+    case SELECT_CART_ALL:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          selectCartIndexes: [
+            ...Array(state.cartDetail ? state.cartDetail.length : 0).keys(),
+          ],
+        },
+      };
+    case UNSELECT_CART_ALL:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          selectCartIndexes: [],
         },
       };
     case ON_SUCCESS_BUY:

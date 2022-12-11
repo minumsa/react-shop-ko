@@ -8,6 +8,10 @@ import {
   GET_CART_ITEMS,
   REMOVE_CART_ITEM,
   ON_SUCCESS_BUY,
+  SELECT_CART_ITEM,
+  UNSELECT_CART_ITEM,
+  SELECT_CART_ALL,
+  UNSELECT_CART_ALL,
 } from "./types";
 import { USER_SERVER } from "../components/Config.js";
 
@@ -112,6 +116,32 @@ export function removeCartItem(productId) {
   return {
     type: REMOVE_CART_ITEM,
     payload: request,
+  };
+}
+
+export function selectCartItem(itemIndex) {
+  return {
+    type: SELECT_CART_ITEM,
+    payload: itemIndex,
+  };
+}
+
+export function unselectCartItem(itemIndex) {
+  return {
+    type: UNSELECT_CART_ITEM,
+    payload: itemIndex,
+  };
+}
+
+export function selectCartAll() {
+  return {
+    type: SELECT_CART_ALL,
+  };
+}
+
+export function unselectCartAll() {
+  return {
+    type: UNSELECT_CART_ALL,
   };
 }
 

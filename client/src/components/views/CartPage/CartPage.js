@@ -14,7 +14,6 @@ function CartPage(props) {
   const [Total, setTotal] = useState(0);
   const [ShowTotal, setShowTotal] = useState(false);
   const [ShowSuccess, setShowSuccess] = useState(false);
-  const [TotalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
     let cartItems = [];
@@ -27,51 +26,29 @@ function CartPage(props) {
         });
         dispatch(getCartItems(cartItems, props.user.userData.cart)).then(
           response => {
-            calculateTotal(response.payload);
+            setShowTotal(true);
           }
         );
       }
     }
   }, [props.user.userData]);
 
-  let calculateTotal = cartDetail => {
-    let total = 0;
-    cartDetail.map(item => {
-      total += parseInt(item.price, 10) * item.quantity;
-    });
-
-    setTotal(total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-    setShowTotal(true);
-  };
-
-  // TODO: 총 개수 React Hooks
   useEffect(() => {
-    let cartItems = [];
-
-    if (props.user.userData && props.user.userData.cart) {
-      if (props.user.userData.cart.length > 0) {
-        props.user.userData.cart.forEach(item => {
-          cartItems.push(item.id);
-        });
-        dispatch(getCartItems(cartItems, props.user.userData.cart)).then(
-          response => {
-            console.log(response.payload);
-            calculateTotalAmount(response.payload);
-          }
-        );
-      }
+    let total = 0;
+    if (props.user.cartDetail) {
+      props.user.cartDetail.forEach((item, index) => {
+        if (
+          props.user.userData.selectCartIndexes &&
+          props.user.userData.selectCartIndexes.includes(index)
+        ) {
+          console.log(item);
+          console.log(total);
+          total += parseInt(item.price, 10) * item.quantity;
+        }
+      });
     }
+    setTotal(total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
   }, [props.user.userData]);
-
-  // TODO: 총 개수 함수
-  let calculateTotalAmount = cartDetail => {
-    let totalAmount = 0;
-    cartDetail.map(item => {
-      totalAmount += parseInt(item.quantity);
-    });
-
-    setTotalAmount(totalAmount);
-  };
 
   let removeFromCart = productId => {
     dispatch(removeCartItem(productId)).then(response => {
@@ -95,6 +72,13 @@ function CartPage(props) {
     });
   };
 
+  let cartCount;
+  if (props.user.userData && props.user.userData.selectCartIndexes) {
+    cartCount = props.user.userData.selectCartIndexes.length;
+  } else {
+    cartCount = 0;
+  }
+
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
       <div
@@ -107,11 +91,14 @@ function CartPage(props) {
         }}
       >
         <span>장바구니</span>
-        <span style={{ marginLeft: "2px" }}>({TotalAmount})</span>
+        <span style={{ marginLeft: "2px" }}>({cartCount})</span>
       </div>
       <div>
         <UserCardBlock
           products={props.user.cartDetail}
+          selectCartIndexes={
+            props.user.userData && props.user.userData.selectCartIndexes
+          }
           removeItem={removeFromCart}
         />
       </div>

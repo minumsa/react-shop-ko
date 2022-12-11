@@ -1,5 +1,12 @@
 import Item from "antd/lib/list/Item";
 import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  selectCartAll,
+  selectCartItem,
+  unselectCartAll,
+  unselectCartItem,
+} from "../../../../_actions/user_actions";
 import "./UserCardBlock.css";
 
 function UserCardBlock(props) {
@@ -10,12 +17,26 @@ function UserCardBlock(props) {
     }
   };
 
+  const dispatch = useDispatch();
+
   const renderItems = () =>
     props.products &&
     props.products.map((product, index) => (
       <tr key={index}>
         <td style={{ textAlign: "center" }}>
-          <input type="checkbox"></input>
+          <input
+            type="checkbox"
+            checked={
+              props.selectCartIndexes && props.selectCartIndexes.includes(index)
+            }
+            onChange={e => {
+              if (e.target.checked) {
+                dispatch(selectCartItem(index));
+              } else {
+                dispatch(unselectCartItem(index));
+              }
+            }}
+          ></input>
         </td>
         <td>
           <a href={`/product/${product._id}`}>
@@ -53,7 +74,23 @@ function UserCardBlock(props) {
         <thead>
           <tr>
             <th style={{ width: "50px" }}>
-              <input type="checkbox"></input>
+              <input
+                type="checkbox"
+                checked={
+                  props.selectCartIndexes &&
+                  props.products &&
+                  props.selectCartIndexes.length == props.products.length
+                    ? true
+                    : false
+                }
+                onChange={e => {
+                  if (e.target.checked) {
+                    dispatch(selectCartAll());
+                  } else {
+                    dispatch(unselectCartAll());
+                  }
+                }}
+              ></input>
             </th>
             <th style={{ width: "450px" }}>상품명</th>
             <th style={{ width: "150px" }}>주문금액</th>
