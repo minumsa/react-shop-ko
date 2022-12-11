@@ -14,7 +14,7 @@ function ImageSlider(props) {
                 maxWidth: "auto",
                 maxHeight: "350px",
               }}
-              src={`http://localhost:5000/${image}`}
+              src={`http://localhost:5001/${image}`}
             />
           </div>
         ))}
