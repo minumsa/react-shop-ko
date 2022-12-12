@@ -13,7 +13,7 @@ function NavBar() {
 
   const onClose = () => {
     setVisible(false);
-  }; //
+  };
 
   return (
     <nav
