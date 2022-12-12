@@ -30,6 +30,7 @@ button {
   word-spacing: -0.5px;
   padding: 8px 16px;
   cursor: pointer;
+  min-width: 79px;
 }
 
 input[type='checkbox'] {
