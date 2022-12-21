@@ -12,17 +12,25 @@ function ProductInfo(props) {
   };
 
   return (
-    <div>
+    <div style={{ color: "black" }}>
       <Descriptions bordered>
         <Descriptions.Item label="PRICE">
-          {props?.detail?.price
-            ?.toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          <div style={{ color: "black" }}>
+            {props?.detail?.price
+              ?.toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </div>
         </Descriptions.Item>
-        <Descriptions.Item label="SOLD">{props.detail.sold}</Descriptions.Item>
-        <Descriptions.Item label="VIEW">{props.detail.views}</Descriptions.Item>
+        <Descriptions.Item label="SOLD">
+          <div style={{ color: "black" }}>{props.detail.sold}</div>
+        </Descriptions.Item>
+        <Descriptions.Item label="VIEW">
+          <div style={{ color: "black" }}>{props.detail.views}</div>
+        </Descriptions.Item>
         <Descriptions.Item label="ITEM INFO">
-          {props.detail.description}
+          <div style={{ whiteSpace: "pre-wrap", color: "black" }}>
+            {props.detail.description}
+          </div>
         </Descriptions.Item>
       </Descriptions>
 

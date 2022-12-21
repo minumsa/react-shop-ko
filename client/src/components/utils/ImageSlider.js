@@ -11,8 +11,8 @@ function ImageSlider(props) {
             <img
               style={{
                 // FIXME: 창 크기에 따라 이미지 깨짐
-                maxWidth: "auto",
-                maxHeight: "350px",
+                width: "100%",
+                maxHeight: "100%",
               }}
               src={`http://localhost:5001/${image}`}
             />

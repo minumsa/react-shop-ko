@@ -1,12 +1,12 @@
-const { Schema } = require('mongoose');
+const { Schema } = require("mongoose");
 // const Schema = mongoose.Schema;
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const productSchema = mongoose.Schema(
   {
     writer: {
       type: Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
     },
     title: {
       type: String,
@@ -28,7 +28,7 @@ const productSchema = mongoose.Schema(
       maxlength: 100,
       default: 0,
     },
-    continents: {
+    brands: {
       type: Number,
       default: 1,
     },
@@ -42,8 +42,8 @@ const productSchema = mongoose.Schema(
 
 productSchema.index(
   {
-    title: 'text',
-    description: 'text',
+    title: "text",
+    description: "text",
   },
   {
     weights: {
@@ -53,6 +53,6 @@ productSchema.index(
   }
 );
 
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model("Product", productSchema);
 
 module.exports = { Product };

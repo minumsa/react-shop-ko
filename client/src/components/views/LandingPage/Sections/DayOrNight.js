@@ -2,10 +2,10 @@ function DayOrNight() {
   let date = new Date();
   let hour = date.getHours();
   let result;
-  if (hour < 13) {
-    result = 'AM';
+  if (hour < 12) {
+    result = "AM";
   } else {
-    result = 'PM';
+    result = "PM";
   }
   return result;
 }
