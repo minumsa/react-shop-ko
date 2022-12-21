@@ -24,7 +24,7 @@ function UploadProductPage(props) {
   const [Title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
   const [Price, setPrice] = useState(0);
-  const [Continent, setContinent] = useState(1);
+  const [Brand, setBrand] = useState(1);
   const [Images, setImages] = useState([]);
 
   const titleChangeHandler = event => {
@@ -39,8 +39,8 @@ function UploadProductPage(props) {
     setPrice(event.currentTarget.value);
   };
 
-  const continentChangeHandler = event => {
-    setContinent(event.currentTarget.value);
+  const brandChangeHandler = event => {
+    setBrand(event.currentTarget.value);
   };
 
   const updateImages = newImages => {
@@ -50,13 +50,7 @@ function UploadProductPage(props) {
   const submitHandler = event => {
     event.preventDefault();
 
-    if (
-      !Title ||
-      !Description ||
-      !Price ||
-      !Continent ||
-      !Images.length === 0
-    ) {
+    if (!Title || !Description || !Price || !Brand || !Images.length === 0) {
       return alert("모든 값을 넣어주셔야 합니다.");
     }
 
@@ -69,7 +63,7 @@ function UploadProductPage(props) {
       description: Description,
       price: Price,
       images: Images,
-      continent: Continent,
+      brand: Brand,
     };
 
     Axios.post("/api/product", body).then(response => {
@@ -100,7 +94,11 @@ function UploadProductPage(props) {
         <br />
         <br />
         <label>설명</label>
-        <TextArea onChange={descriptionChangeHandler} value={Description} />
+        <TextArea
+          onChange={descriptionChangeHandler}
+          value={Description}
+          style={{ height: 200 }}
+        />
         <br />
         <br />
         <label>가격(₩)</label>
@@ -108,9 +106,9 @@ function UploadProductPage(props) {
         <br />
         <br />
         <select
-          onChange={continentChangeHandler}
-          value={Continent}
-          style={{ height: 30, width: 100 }}
+          onChange={brandChangeHandler}
+          value={Brand}
+          style={{ height: 30, width: 200 }}
         >
           {Brands.map(item => (
             <option key={item.key} value={item.key}>

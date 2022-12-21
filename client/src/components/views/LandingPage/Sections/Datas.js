@@ -41,7 +41,7 @@ const brands = [
   },
   {
     _id: 11,
-    name: "NEITHERS",
+    name: "NEW BALANCE",
   },
 ];
 

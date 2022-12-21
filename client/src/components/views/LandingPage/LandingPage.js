@@ -165,10 +165,10 @@ function LandingPage() {
       >
         {/* Clock */}
         <div style={{ marginRight: "1px", color: "black" }}>
-          <DayOrNight />
+          {/* <DayOrNight /> */}
         </div>
         <div style={{ marginRight: "10px", color: "black" }}>
-          <Clock />
+          {/* <Clock /> */}
         </div>
         <SearchFeature refreshFunction={updateSearchTerm} />
       </div>
