@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { Input } from 'antd';
-
+import React, { useState } from "react";
+import { Input } from "antd";
 const { Search } = Input;
 
 function SearchFeature(props) {
-  const [SearchTerm, setSearchTerm] = useState('');
-  const searchHandler = (event) => {
+  const [SearchTerm, setSearchTerm] = useState("");
+  const searchHandler = event => {
     setSearchTerm(event.currentTarget.value);
     props.refreshFunction(event.currentTarget.value);
   };
@@ -13,7 +12,7 @@ function SearchFeature(props) {
   return (
     <div>
       <Search
-        placeholder=" 상품명 검색"
+        placeholder="상품명 검색"
         onChange={searchHandler}
         style={{ width: 200, height: 33 }}
         value={SearchTerm}

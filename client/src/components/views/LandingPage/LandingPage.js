@@ -5,7 +5,7 @@ import Meta from "antd/lib/card/Meta";
 import ImageSlider from "../../utils/ImageSlider";
 import Checkbox from "./Sections/Checkbox";
 import Radiobox from "./Sections/Radiobox";
-import { continents, price } from "./Sections/Datas";
+import { brands as brands, price } from "./Sections/Datas";
 import SearchFeature from "./Sections/SearchFeature";
 import Clock from "./Sections/Clock";
 import DayOrNight from "./Sections/DayOrNight";
@@ -16,7 +16,7 @@ function LandingPage() {
   const [Limit, setLimit] = useState(8);
   const [PostSize, setPostSize] = useState();
   const [Filters, setFilters] = useState({
-    continents: [],
+    brands: [],
     price: [],
   });
 
@@ -69,9 +69,9 @@ function LandingPage() {
         >
           <Meta
             title={product.title}
-            description={`${product.price
+            description={`₩${product.price
               .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
           />
         </Card>
       </Col>
@@ -141,8 +141,8 @@ function LandingPage() {
         <Col lg={12} xs={24}>
           {/* CheckBox */}
           <Checkbox
-            list={continents}
-            handleFilters={filters => handleFilters(filters, "continents")}
+            list={brands}
+            handleFilters={filters => handleFilters(filters, "brands")}
           />
         </Col>
         <Col lg={12} xs={24}>
