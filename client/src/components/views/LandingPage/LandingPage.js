@@ -5,7 +5,7 @@ import Meta from "antd/lib/card/Meta";
 import ImageSlider from "../../utils/ImageSlider";
 import Checkbox from "./Sections/Checkbox";
 import Radiobox from "./Sections/Radiobox";
-import { brands as brands, price } from "./Sections/Datas";
+import { brands, price } from "./Sections/Datas";
 import SearchFeature from "./Sections/SearchFeature";
 import Clock from "./Sections/Clock";
 import DayOrNight from "./Sections/DayOrNight";

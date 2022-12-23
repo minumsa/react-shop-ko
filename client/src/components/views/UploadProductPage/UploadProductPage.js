@@ -94,11 +94,7 @@ function UploadProductPage(props) {
         <br />
         <br />
         <label>설명</label>
-        <TextArea
-          onChange={descriptionChangeHandler}
-          value={Description}
-          style={{ height: 200 }}
-        />
+        <TextArea onChange={descriptionChangeHandler} value={Description} />
         <br />
         <br />
         <label>가격(₩)</label>
@@ -108,7 +104,7 @@ function UploadProductPage(props) {
         <select
           onChange={brandChangeHandler}
           value={Brand}
-          style={{ height: 30, width: 200 }}
+          style={{ height: 30, width: 100 }}
         >
           {Brands.map(item => (
             <option key={item.key} value={item.key}>
