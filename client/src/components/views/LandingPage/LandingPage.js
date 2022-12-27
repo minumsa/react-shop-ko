@@ -34,9 +34,18 @@ function LandingPage() {
     axios.post("/api/product/products", body).then(response => {
       if (response.data.success) {
         if (body.loadMore) {
-          setProducts([...Products, ...response.data.productInfo]);
+          setProducts([
+            ...Products,
+            ...response.data.productInfo.sort(function (a, b) {
+              return b.createdAt - a.createdAt;
+            }),
+          ]);
         } else {
-          setProducts(response.data.productInfo);
+          setProducts(
+            response.data.productInfo.sort(function (a, b) {
+              return b.createdAt - a.createdAt;
+            })
+          );
         }
         setPostSize(response.data.postSize);
       } else {
