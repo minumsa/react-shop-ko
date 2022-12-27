@@ -38,9 +38,16 @@ function ProductInfo(props) {
       <br />
       <br />
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button size="large" shape="round" onClick={clickHandler}>
-          장바구니
-        </Button>
+        <div>
+          <Button size="large" shape="round">
+            구매하기
+          </Button>
+        </div>
+        <div style={{ marginLeft: "20px" }}>
+          <Button size="large" shape="round" onClick={clickHandler}>
+            장바구니
+          </Button>
+        </div>
       </div>
     </div>
   );
