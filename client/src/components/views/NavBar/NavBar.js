@@ -22,10 +22,7 @@ function NavBar() {
     >
       <div className="menu__logo">
         <a href="/">
-          <img
-            src="https://slowsteadyclub.com/web/baton/images/logo/ssc_square_logo.png"
-            height={"23px"}
-          ></img>
+          <img src="https://ifh.cc/g/Asl2jo.png" height={"32px"}></img>
         </a>
       </div>
       <div className="menu__container">

@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import './Footer.css';
+import React from "react";
+import styled from "styled-components";
+import "./Footer.css";
 
 function Footer() {
   return (
@@ -10,7 +10,7 @@ function Footer() {
           <FooterLinkContent>
             <div class="footer-logo">
               <a href="/">
-                <img src="https://slowsteadyclub.com/web/baton/images/logo/ssc_footer_logo.png"></img>
+                <img src="https://ifh.cc/g/hxkvh2.png"></img>
               </a>
             </div>
             <div>
@@ -84,7 +84,7 @@ function Footer() {
           </FooterLinkContent>
           <FooterDescContainter>
             <FooterDescRights>
-              COPYRIGHT ⓒ BENEDEF, ALL RIGHTS RESERVED.
+              COPYRIGHT ⓒ CHOIYOOIL, ALL RIGHTS RESERVED.
             </FooterDescRights>
           </FooterDescContainter>
         </FooterLinkContainer>
@@ -117,7 +117,6 @@ const FooterContent = styled.div`
 
 const FooterLinkContainer = styled.div`
   width: 800px;
-
   @media (max-width: 1001px) {
     width: 100%;
   }
