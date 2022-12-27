@@ -37,13 +37,25 @@ function LandingPage() {
           setProducts([
             ...Products,
             ...response.data.productInfo.sort(function (a, b) {
-              return b.createdAt - a.createdAt;
+              if (b.createdAt > a.createdAt) {
+                return 1;
+              }
+              if (b.createdAt < a.createdAt) {
+                return -1;
+              }
+              return 0;
             }),
           ]);
         } else {
           setProducts(
             response.data.productInfo.sort(function (a, b) {
-              return b.createdAt - a.createdAt;
+              if (b.createdAt > a.createdAt) {
+                return 1;
+              }
+              if (b.createdAt < a.createdAt) {
+                return -1;
+              }
+              return 0;
             })
           );
         }
