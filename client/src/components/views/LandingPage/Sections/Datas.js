@@ -1,3 +1,34 @@
+const items = [
+  {
+    _id: 1,
+    name: "TOP",
+  },
+  {
+    _id: 2,
+    name: "BOTTOM",
+  },
+  {
+    _id: 3,
+    name: "OUTER",
+  },
+  {
+    _id: 4,
+    name: "SHOES",
+  },
+  {
+    _id: 5,
+    name: "BAG",
+  },
+  {
+    _id: 6,
+    name: "ACCESSORY",
+  },
+  {
+    _id: 7,
+    name: "LIFESTYLE",
+  },
+];
+
 const brands = [
   {
     _id: 1,
@@ -78,4 +109,4 @@ const price = [
   },
 ];
 
-export { brands, price };
+export { items, brands, price };
