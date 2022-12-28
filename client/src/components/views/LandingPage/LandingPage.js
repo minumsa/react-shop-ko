@@ -33,31 +33,22 @@ function LandingPage() {
   const getProducts = body => {
     axios.post("/api/product/products", body).then(response => {
       if (response.data.success) {
+        let itemSortedByCreated = response.data.productInfo.sort(function (
+          a,
+          b
+        ) {
+          if (a.createdAt < b.createdAt) {
+            return 1;
+          }
+          if (a.createdAt > b.createdAt) {
+            return -1;
+          }
+          return 0;
+        });
         if (body.loadMore) {
-          setProducts([
-            ...Products,
-            ...response.data.productInfo.sort(function (a, b) {
-              if (b.createdAt > a.createdAt) {
-                return 1;
-              }
-              if (b.createdAt < a.createdAt) {
-                return -1;
-              }
-              return 0;
-            }),
-          ]);
+          setProducts([...Products, ...itemSortedByCreated]);
         } else {
-          setProducts(
-            response.data.productInfo.sort(function (a, b) {
-              if (b.createdAt > a.createdAt) {
-                return 1;
-              }
-              if (b.createdAt < a.createdAt) {
-                return -1;
-              }
-              return 0;
-            })
-          );
+          setProducts(itemSortedByCreated);
         }
         setPostSize(response.data.postSize);
       } else {
