@@ -17,7 +17,12 @@ function LeftMenu(props) {
             OUTER
           </a>
         </Menu.Item>
-        <Menu.Item key="setting:2">TOP</Menu.Item>
+        <Menu.Item key="setting:2">
+          {" "}
+          <a href="/top" style={{ color: "black" }}>
+            TOP
+          </a>
+        </Menu.Item>
         <Menu.Item key="setting:3">BOTTOM</Menu.Item>
         <Menu.Item key="setting:4">SHOES</Menu.Item>
         <Menu.Item key="setting:5">BAG</Menu.Item>
