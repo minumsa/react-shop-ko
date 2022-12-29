@@ -63,7 +63,7 @@ function UploadProductPage(props) {
       description: Description,
       price: Price,
       images: Images,
-      brand: Brand,
+      brands: Brand,
     };
 
     Axios.post("/api/product", body).then(response => {
@@ -111,7 +111,7 @@ function UploadProductPage(props) {
           style={{ height: 30, width: 200 }}
         >
           {Brands.map(item => (
-            <option key={item.key} value={item.value}>
+            <option key={item.key} value={item.key}>
               {item.value}
             </option>
           ))}
