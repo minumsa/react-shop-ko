@@ -32,6 +32,10 @@ const productSchema = mongoose.Schema(
       type: Number,
       default: 1,
     },
+    categories: {
+      type: Number,
+      default: 1,
+    },
     views: {
       type: Number,
       default: 0,

@@ -8,7 +8,7 @@ function OuterPage() {
   useEffect(() => {
     let body = {
       skip: 0,
-      limit: 8,
+      limit: 100,
     };
     getProducts(body);
   }, []);
@@ -16,7 +16,8 @@ function OuterPage() {
   const getProducts = body => {
     axios.post("/api/product/products", body).then(response => {
       if (response.data.success) {
-        setProducts(response.data.productInfo);
+        let outerProduct = response.data.productInfo.filter(value => value.categories === 5);
+        setProducts(outerProduct);
       } else {
         alert("상품들을 가져오는 데 실패했습니다.");
       }

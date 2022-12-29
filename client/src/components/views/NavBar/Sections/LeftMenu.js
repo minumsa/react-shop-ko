@@ -12,7 +12,11 @@ function LeftMenu(props) {
         </a>
       </Menu.Item>
       <SubMenu title={<span>카테고리</span>}>
-        <Menu.Item key="setting:1">OUTER</Menu.Item>
+        <Menu.Item key="setting:1">
+          <a href="/outer" style={{ color: "black" }}>
+            OUTER
+          </a>
+        </Menu.Item>
         <Menu.Item key="setting:2">TOP</Menu.Item>
         <Menu.Item key="setting:3">BOTTOM</Menu.Item>
         <Menu.Item key="setting:4">SHOES</Menu.Item>
