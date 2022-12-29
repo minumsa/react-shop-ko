@@ -10,6 +10,23 @@ import SearchFeature from "./Sections/SearchFeature";
 import Clock from "./Sections/Clock";
 import DayOrNight from "./Sections/DayOrNight";
 
+export const renderCards = Products =>
+  Products.map((product, index) => {
+    return (
+      <Col lg={6} md={8} xs={24} key={index}>
+        <Card
+          cover={
+            <a href={`/product/${product._id}`}>
+              <ImageSlider images={product.images} />
+            </a>
+          }
+        >
+          <Meta title={product.title} description={`₩${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`} />
+        </Card>
+      </Col>
+    );
+  });
+
 function LandingPage() {
   const [Products, setProducts] = useState([]);
   const [Skip, setSkip] = useState(0);
@@ -33,10 +50,7 @@ function LandingPage() {
   const getProducts = body => {
     axios.post("/api/product/products", body).then(response => {
       if (response.data.success) {
-        let itemSortedByCreated = response.data.productInfo.sort(function (
-          a,
-          b
-        ) {
+        let itemSortedByCreated = response.data.productInfo.sort(function (a, b) {
           if (a.createdAt < b.createdAt) {
             return 1;
           }
@@ -68,27 +82,6 @@ function LandingPage() {
     getProducts(body);
     setSkip(skip);
   };
-
-  const renderCards = Products.map((product, index) => {
-    return (
-      <Col lg={6} md={8} xs={24} key={index}>
-        <Card
-          cover={
-            <a href={`/product/${product._id}`}>
-              <ImageSlider images={product.images} />
-            </a>
-          }
-        >
-          <Meta
-            title={product.title}
-            description={`₩${product.price
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
-          />
-        </Card>
-      </Col>
-    );
-  });
 
   const showFilteredResults = filters => {
     let body = {
@@ -152,17 +145,11 @@ function LandingPage() {
       <Row gutter={[16, 16]}>
         <Col lg={12} xs={24}>
           {/* CheckBox */}
-          <Checkbox
-            list={brands}
-            handleFilters={filters => handleFilters(filters, "brands")}
-          />
+          <Checkbox list={brands} handleFilters={filters => handleFilters(filters, "brands")} />
         </Col>
         <Col lg={12} xs={24}>
           {/* RadioBox */}
-          <Radiobox
-            list={price}
-            handleFilters={filters => handleFilters(filters, "price")}
-          />
+          <Radiobox list={price} handleFilters={filters => handleFilters(filters, "price")} />
         </Col>
       </Row>
 
@@ -176,18 +163,14 @@ function LandingPage() {
         }}
       >
         {/* Clock */}
-        <div style={{ marginRight: "1px", color: "black" }}>
-          {/* <DayOrNight /> */}
-        </div>
-        <div style={{ marginRight: "10px", color: "black" }}>
-          {/* <Clock /> */}
-        </div>
+        <div style={{ marginRight: "1px", color: "black" }}>{/* <DayOrNight /> */}</div>
+        <div style={{ marginRight: "10px", color: "black" }}>{/* <Clock /> */}</div>
         <SearchFeature refreshFunction={updateSearchTerm} />
       </div>
 
       {/* Cards */}
 
-      <Row gutter={[16, 16]}>{renderCards}</Row>
+      <Row gutter={[16, 16]}>{renderCards(Products)}</Row>
       <br />
 
       {PostSize >= Limit && (

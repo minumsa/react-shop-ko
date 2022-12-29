@@ -20,11 +20,22 @@ const Brands = [
   { key: 11, value: "NEW BALANCE" },
 ];
 
+const Categories = [
+  { key: 1, value: "OUTER" },
+  { key: 2, value: "TOP" },
+  { key: 3, value: "BOTTOM" },
+  { key: 4, value: "SHOES" },
+  { key: 5, value: "BAG" },
+  { key: 6, value: "ACCESSORY" },
+  { key: 7, value: "LIFESTYLE" },
+];
+
 function UploadProductPage(props) {
   const [Title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
   const [Price, setPrice] = useState(0);
   const [Brand, setBrand] = useState(1);
+  const [Category, setCategory] = useState(1);
   const [Images, setImages] = useState([]);
 
   const titleChangeHandler = event => {
@@ -41,6 +52,10 @@ function UploadProductPage(props) {
 
   const brandChangeHandler = event => {
     setBrand(event.currentTarget.value);
+  };
+
+  const categoryChangeHandler = event => {
+    setCategory(event.currentTarget.value);
   };
 
   const updateImages = newImages => {
@@ -64,6 +79,7 @@ function UploadProductPage(props) {
       price: Price,
       images: Images,
       brands: Brand,
+      categories: Category,
     };
 
     Axios.post("/api/product", body).then(response => {
@@ -94,28 +110,31 @@ function UploadProductPage(props) {
         <br />
         <br />
         <label>설명</label>
-        <TextArea
-          onChange={descriptionChangeHandler}
-          value={Description}
-          style={{ height: 250 }}
-        />
+        <TextArea onChange={descriptionChangeHandler} value={Description} style={{ height: 250 }} />
         <br />
         <br />
         <label>가격(₩)</label>
         <Input type="number" onChange={priceChangeHandler} value={Price} />
         <br />
         <br />
-        <select
-          onChange={brandChangeHandler}
-          value={Brand}
-          style={{ height: 30, width: 200 }}
-        >
-          {Brands.map(item => (
-            <option key={item.key} value={item.key}>
-              {item.value}
-            </option>
-          ))}
-        </select>
+        <div>
+          <select onChange={brandChangeHandler} value={Brand} style={{ height: 30, width: 250 }}>
+            {Brands.map(item => (
+              <option key={item.key} value={item.key}>
+                {item.value}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div style={{ marginTop: "20px" }}>
+          <select onChange={categoryChangeHandler} value={Category} style={{ height: 30, width: 250 }}>
+            {Categories.map(item => (
+              <option key={item.key} value={item.key}>
+                {item.value}
+              </option>
+            ))}
+          </select>
+        </div>
         <br />
         <br />
         <button>확인</button>
