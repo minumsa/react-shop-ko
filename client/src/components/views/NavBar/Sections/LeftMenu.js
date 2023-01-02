@@ -23,11 +23,36 @@ function LeftMenu(props) {
             TOP
           </a>
         </Menu.Item>
-        <Menu.Item key="setting:3">BOTTOM</Menu.Item>
-        <Menu.Item key="setting:4">SHOES</Menu.Item>
-        <Menu.Item key="setting:5">BAG</Menu.Item>
-        <Menu.Item key="setting:6">ACCESSORY</Menu.Item>
-        <Menu.Item key="setting:7">LIFESTYLE</Menu.Item>
+        <Menu.Item key="setting:3">
+          {" "}
+          <a href="/bottom" style={{ color: "black" }}>
+            BOTTOM
+          </a>
+        </Menu.Item>
+        <Menu.Item key="setting:4">
+          {" "}
+          <a href="/shoes" style={{ color: "black" }}>
+            SHOES
+          </a>
+        </Menu.Item>
+        <Menu.Item key="setting:5">
+          {" "}
+          <a href="/bag" style={{ color: "black" }}>
+            BAG
+          </a>
+        </Menu.Item>
+        <Menu.Item key="setting:6">
+          {" "}
+          <a href="/accessory" style={{ color: "black" }}>
+            ACCESSORY
+          </a>
+        </Menu.Item>
+        <Menu.Item key="setting:7">
+          {" "}
+          <a href="/lifestyle" style={{ color: "black" }}>
+            LIFESTYLE
+          </a>
+        </Menu.Item>
       </SubMenu>
     </Menu>
   );
