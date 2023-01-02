@@ -16,8 +16,8 @@ function BottomPage() {
   const getProducts = body => {
     axios.post("/api/product/products", body).then(response => {
       if (response.data.success) {
-        let outerProduct = response.data.productInfo.filter(value => value.categories === 3);
-        setProducts(outerProduct);
+        let bottomProduct = response.data.productInfo.filter(value => value.categories === 3);
+        setProducts(bottomProduct);
       } else {
         alert("상품들을 가져오는 데 실패했습니다.");
       }
