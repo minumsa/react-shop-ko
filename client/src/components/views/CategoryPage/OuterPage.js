@@ -16,7 +16,7 @@ function OuterPage() {
   const getProducts = body => {
     axios.post("/api/product/products", body).then(response => {
       if (response.data.success) {
-        let outerProduct = response.data.productInfo.filter(value => value.categories === 5);
+        let outerProduct = response.data.productInfo.filter(value => value.categories === 1);
         setProducts(outerProduct);
       } else {
         alert("상품들을 가져오는 데 실패했습니다.");

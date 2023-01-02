@@ -1,4 +1,4 @@
-const items = [
+const categories = [
   {
     _id: 1,
     name: "TOP",
@@ -109,4 +109,4 @@ const price = [
   },
 ];
 
-export { items, brands, price };
+export { categories, brands, price };
