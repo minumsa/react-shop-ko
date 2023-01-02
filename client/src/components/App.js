@@ -13,6 +13,11 @@ import CartPage from "./views/CartPage/CartPage";
 import HistoryPage from "./views/HistoryPage/HistoryPage";
 import OuterPage from "./views/CategoryPage/OuterPage";
 import TopPage from "./views/CategoryPage/TopPage";
+import BottomPage from "./views/CategoryPage/BottomPage";
+import ShoesPage from "./views/CategoryPage/ShoesPage";
+import BagPage from "./views/CategoryPage/BagPage";
+import AccessoryPage from "./views/CategoryPage/AccessoryPage";
+import LifestylePage from "./views/CategoryPage/LifestylePage";
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -33,6 +38,11 @@ function App() {
           <Route exact path="/history" component={Auth(HistoryPage, true)} />
           <Route exact path="/outer" component={Auth(OuterPage, true)} />
           <Route exact path="/top" component={Auth(TopPage, true)} />
+          <Route exact path="/bottom" component={Auth(BottomPage, true)} />
+          <Route exact path="/shoes" component={Auth(ShoesPage, true)} />
+          <Route exact path="/bag" component={Auth(BagPage, true)} />
+          <Route exact path="/accessory" component={Auth(AccessoryPage, true)} />
+          <Route exact path="/lifestyle" component={Auth(LifestylePage, true)} />
         </Switch>
       </div>
       <Footer />

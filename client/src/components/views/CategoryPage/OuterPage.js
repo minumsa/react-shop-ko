@@ -24,7 +24,8 @@ function OuterPage() {
     });
   };
   return (
-    <div>
+    <div style={{ width: "75%", margin: "3rem auto" }}>
+      <span style={{ fontSize: "26px", fontWeight: 700, justifyContent: "center", display: "flex", marginBottom: "50px" }}>OUTER</span>
       <Row gutter={[16, 16]}>{renderCards(Products)}</Row>
     </div>
   );
