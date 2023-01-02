@@ -1,15 +1,15 @@
 const categories = [
   {
     _id: 1,
-    name: "TOP",
+    name: "OUTER",
   },
   {
     _id: 2,
-    name: "BOTTOM",
+    name: "TOP",
   },
   {
     _id: 3,
-    name: "OUTER",
+    name: "BOTTOM",
   },
   {
     _id: 4,

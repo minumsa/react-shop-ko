@@ -117,6 +117,7 @@ function UploadProductPage(props) {
         <Input type="number" onChange={priceChangeHandler} value={Price} />
         <br />
         <br />
+        <label>브랜드</label>
         <div>
           <select onChange={brandChangeHandler} value={Brand} style={{ height: 30, width: 250 }}>
             {Brands.map(item => (
@@ -127,6 +128,9 @@ function UploadProductPage(props) {
           </select>
         </div>
         <div style={{ marginTop: "20px" }}>
+          <label>카테고리</label>
+        </div>
+        <div>
           <select onChange={categoryChangeHandler} value={Category} style={{ height: 30, width: 250 }}>
             {Categories.map(item => (
               <option key={item.key} value={item.key}>
@@ -135,9 +139,9 @@ function UploadProductPage(props) {
             ))}
           </select>
         </div>
-        <br />
-        <br />
-        <button>확인</button>
+        <div style={{ marginTop: "30px" }}>
+          <button>확인</button>
+        </div>
       </Form>
     </div>
   );
