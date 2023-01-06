@@ -17,7 +17,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "author": "John ahn",
+  "author": "Carver Choi",
   "license": "ISC",
   "dependencies": {
     "antd": "^5.0.4",
