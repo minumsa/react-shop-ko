@@ -16,10 +16,7 @@ function NavBar() {
   };
 
   return (
-    <nav
-      className="menu"
-      style={{ position: "fixed", zIndex: 5, width: "100%" }}
-    >
+    <nav className="menu" style={{ position: "fixed", zIndex: 5, width: "100%" }}>
       <div className="menu__logo">
         <a href="/">
           <img src="https://ifh.cc/g/Asl2jo.png" height={"32px"}></img>
@@ -32,21 +29,10 @@ function NavBar() {
         <div className="menu_rigth">
           <RightMenu mode="horizontal" />
         </div>
-        <Button
-          className="menu__mobile-button"
-          type="primary"
-          onClick={showDrawer}
-        >
+        <Button className="menu__mobile-button" type="primary" onClick={showDrawer}>
           <Icon type="align-right" />
         </Button>
-        <Drawer
-          title="SLOW STEADY CLUB"
-          placement="right"
-          className="menu_drawer"
-          closable={false}
-          onClose={onClose}
-          visible={visible}
-        >
+        <Drawer title="LUCKY VICTORY CLUB" placement="right" className="menu_drawer" closable={false} onClose={onClose} visible={visible}>
           <LeftMenu mode="inline" />
           <RightMenu mode="inline" />
         </Drawer>
