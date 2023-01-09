@@ -22,6 +22,7 @@ https://www.youtube.com/watch?v=UnaFT9iJ4sw&ab_channel=BanHeesoo
 2. `Back-end`: <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933.svg?style=for-the-badge&logo=Node.js&logoColor=white"/> <img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-%23323330.svg?style=for-the-badge&logo=MongoDB&logoColor=47A248"/>
 3. `IDE`: <img alt="VisualStudioCode" src="https://img.shields.io/badge/VisualStudioCode-007ACC.svg?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
    ㅤ
+   ㅤ
 
 #### ✅ 프로필
 
