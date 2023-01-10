@@ -5,7 +5,7 @@ https://www.youtube.com/watch?v=UnaFT9iJ4sw&ab_channel=BanHeesoo
 
 #### ✅ 프로젝트 소개
 
-`리액트`의 기본 개념과 여러 기술을 직접 쇼핑몰을 만들며 학습했습니다. 특히 `프론트엔드 웹 개발 실무`에 필요한 리액트 관련 지식을 습득하는 방향으로 프로젝트를 진행하기 위해 노력했습니다.  
+`리액트`의 기본 개념과 여러 기술을 직접 쇼핑몰을 만들며 학습했습니다. 특히 `프론트엔드 웹 개발 실무`에 필요한 리액트 관련 지식을 습득하는 방향으로 프로젝트를 진행했습니다.
 ㅤ
 
 #### ✅ 구현 기능 목록
@@ -21,7 +21,6 @@ https://www.youtube.com/watch?v=UnaFT9iJ4sw&ab_channel=BanHeesoo
 1. `Front-end`: <img alt="HTML5" src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"/> <img alt="CSS3" src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"/> <img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> <img alt="React" src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/> <img alt="Redux" src="https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=black"/>
 2. `Back-end`: <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933.svg?style=for-the-badge&logo=Node.js&logoColor=white"/> <img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-%23323330.svg?style=for-the-badge&logo=MongoDB&logoColor=47A248"/>
 3. `IDE`: <img alt="VisualStudioCode" src="https://img.shields.io/badge/VisualStudioCode-007ACC.svg?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
-   ㅤ
    ㅤ
 
 #### ✅ 프로필
