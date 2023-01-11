@@ -29,7 +29,7 @@ function RightMenu(props) {
         </Menu.Item>
         <Menu.Item key="app">
           <a href="/register" style={{ color: "black" }}>
-            로그아웃
+            회원가입
           </a>
         </Menu.Item>
       </Menu>
@@ -39,15 +39,8 @@ function RightMenu(props) {
       <Menu mode={props.mode}>
         <Menu.Item key="cart" style={{ paddingBottom: 3 }}>
           <Badge count={user.userData && user.userData.cart.length}>
-            <a
-              href="/user/cart"
-              className="head-example"
-              style={{ marginRight: -22, color: "#667777" }}
-            >
-              <Icon
-                type="shopping-cart"
-                style={{ fontSize: 30, marginBottom: 3 }}
-              />
+            <a href="/user/cart" className="head-example" style={{ marginRight: -22, color: "#667777" }}>
+              <Icon type="shopping-cart" style={{ fontSize: 30, marginBottom: 3 }} />
             </a>
           </Badge>
         </Menu.Item>
