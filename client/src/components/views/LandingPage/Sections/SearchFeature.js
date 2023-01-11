@@ -11,12 +11,7 @@ function SearchFeature(props) {
 
   return (
     <div>
-      <Search
-        placeholder="상품명 검색"
-        onChange={searchHandler}
-        style={{ width: 200, height: 33 }}
-        value={SearchTerm}
-      />
+      <Search placeholder="제품명 검색" onChange={searchHandler} style={{ width: 200, height: 33 }} value={SearchTerm} />
     </div>
   );
 }
