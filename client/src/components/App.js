@@ -36,13 +36,13 @@ function App() {
           <Route exact path="/product/:productId" component={Auth(DetailProductPage, null)} />
           <Route exact path="/user/cart" component={Auth(CartPage, true)} />
           <Route exact path="/history" component={Auth(HistoryPage, true)} />
-          <Route exact path="/outer" component={Auth(OuterPage, false)} />
-          <Route exact path="/top" component={Auth(TopPage, false)} />
-          <Route exact path="/bottom" component={Auth(BottomPage, false)} />
-          <Route exact path="/shoes" component={Auth(ShoesPage, false)} />
-          <Route exact path="/bag" component={Auth(BagPage, false)} />
-          <Route exact path="/accessory" component={Auth(AccessoryPage, false)} />
-          <Route exact path="/lifestyle" component={Auth(LifestylePage, false)} />
+          <Route exact path="/outer" component={Auth(OuterPage, null)} />
+          <Route exact path="/top" component={Auth(TopPage, null)} />
+          <Route exact path="/bottom" component={Auth(BottomPage, null)} />
+          <Route exact path="/shoes" component={Auth(ShoesPage, null)} />
+          <Route exact path="/bag" component={Auth(BagPage, null)} />
+          <Route exact path="/accessory" component={Auth(AccessoryPage, null)} />
+          <Route exact path="/lifestyle" component={Auth(LifestylePage, null)} />
         </Switch>
       </div>
       <Footer />
