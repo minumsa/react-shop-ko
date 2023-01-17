@@ -1,6 +1,6 @@
 #### ✅ 프로젝트 구현 영상
 
-https://www.youtube.com/watch?v=UnaFT9iJ4sw&ab_channel=BanHeesoo
+https://youtu.be/-ghoz8AZCz8
 
 #### ✅ 프로젝트 소개
 
