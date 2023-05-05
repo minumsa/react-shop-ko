@@ -10,7 +10,6 @@ function ImageSlider(props) {
           <div key={index}>
             <img
               style={{
-                // FIXME: 창 크기에 따라 이미지 깨짐
                 width: "100%",
                 maxHeight: "100%",
               }}
